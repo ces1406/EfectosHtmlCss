@@ -1,0 +1,32 @@
+
+* {
+    border: solid 1px black;
+}
+
+body {
+    background-color: darkslategrey;
+}
+button:before{ /* creará un pseudoelemento que será el primer hijo del elemento seleccionado*/
+    content: attr(dato);
+}
+button{
+    background-color: blueviolet;
+    width: 140px;
+    height: 70px;
+    padding: 0;
+    margin-left: 20%;           
+    text-align: center;
+    z-index: 1;
+    overflow: hidden;
+}
+button #efecto{
+    background-color: burlywood;
+    width: 140px;
+    height: 70px;
+    z-index: -1; 
+    transform: translateX(-120%); /*<--CLAVE(1): de nuevo, en el renderizado inicial lo desplazo para que no se vea*/
+    transition: 1.2s; /*En el renderizado inicial de la pagina se vera un efecto del transform*/
+}
+button:hover #efecto{
+    transform: translateX(0) scale(2); /*<--CLAVE(2): en el hover lo desplazo creando el efecto */
+}

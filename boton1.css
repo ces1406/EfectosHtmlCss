@@ -1,0 +1,59 @@
+#boton1 {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+}
+nav ul li {
+    --c: goldenrod;
+    color: var(--c);
+    font-size: 16px;
+    border: 0.3em solid var(--c);
+    width: 12em;
+    height: 3em;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: sans-serif;
+    letter-spacing: 0.1em;
+    text-align: center;
+    line-height: 3em;
+    position: relative;    
+    overflow: hidden;/* evitar que se vea el desborde*/
+    z-index: 1;
+    transition: 0.5s;
+    margin: 1em;
+}
+nav ul li span {
+    position: absolute;
+    width: 25%; /* como son 4 spans => c/u ocupará el 25% del ancho*/
+    height: 100%;
+    border-radius: 40%;
+
+    background-color: var(--c);
+    transform: translateY(-120%); /*<--CLAVE(1): en el renderizado inicial lo desplazo para que no se vea*/
+    left: calc((var(--n) - 1) * 25%); /* cada span lo desplazo en un 25% (ya que son 4)*/
+    transition: 2.5s; /* timepo que tardará en su renderizado inicial y cuando le haga el hover con el puntero*/
+    transition-delay: calc((var(--n) - 1) * 0.1s); /* como cada span quiero que se demore en desplazar para lograr 
+                                                      el efecto tipo llenado de barra => le pongo un delay basado en su variable "n" */
+    z-index: -1;
+}
+nav ul li:hover {
+    color: black; /* el titulo de c/boton se coloreará negro al hacerle hover*/
+}
+nav ul li:hover span {
+    transform: translateY(0) scale(2); /*<--CLAVE(2): en el hover lo desplazo creando el efecto y lo escalo para que haga el efecto de crecimiento */
+}
+nav ul li span:nth-child(1) {
+    --n: 1;
+}
+nav ul li span:nth-child(2) {
+    --n: 2;
+}
+nav ul li span:nth-child(3) {
+    --n: 3;
+}
+nav ul li span:nth-child(4) {
+    --n: 4;
+}
