@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" media="screen" type="text/css" href="barraNavResponsive.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.1/css/all.css">
+
+    <!--link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
+    <!--link rel="stylesheet" type="text/css" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/-->
+    
+    <!--script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script-->
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">Logo</a>
+        <span class="icon-regular"></span>      
+        <div class="menu-toggle">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">HOME</a></li>                    
+                <li><a href="#">ABOUT</a></li>
+                <li><a href="#">SERVICES</a></li>
+                <li><a href="#">TEAM</a></li>
+                <li><a href="#">CONTACT</a></li>
+            </ul>
+        </nav>
+        <div class="limpiarDesborde"></div>
+        <script>
+            function clickar(){
+                let nav = document.querySelector(".menu-toggle");
+                console.log('nav: ',nav);
+                nav.addEventListener("click",desplegar)
+            }
+            function desplegar(e){
+                if(e.target.getAttribute("class")=="menu-toggle active"){
+                    e.target.setAttribute('class','menu-toggle')
+                }else{
+                    e.target.setAttribute('class','menu-toggle active')
+                };
+                let nav = document.querySelector("nav")
+                if(nav.getAttribute("class")!="active"){
+                    console.log('no es active');
+                    nav.setAttribute("class","active")
+                }else{
+                    nav.removeAttribute("class")
+                }
+                console.log('e->',e.target.getAttribute("class"))
+            }
+            window.onload=clickar
+        </script>
+    </header>
+</body>
+</html>

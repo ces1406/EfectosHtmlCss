@@ -1,0 +1,173 @@
+/* ~~~~~~~ INIT. BTN ~~~~~~~ */
+.btn {		
+	position: relative;	
+	padding: 1.4rem 4.2rem;
+	padding-right: 3.1rem;
+	font-size: 1.4rem;
+	color: var(--inv);
+	letter-spacing: 1.1rem;
+	text-transform: uppercase;
+	transition: all 500ms cubic-bezier(0.77, 0, 0.175, 1);	/* /*CLAVE: la transición de TODOS los efectos */
+	cursor: pointer;
+	user-select: none;
+}
+.btn:before, .btn:after {
+    /* CLAVE1: agrega un pseudo elemento vacío antes y despues (o sea en las puntas del button) */
+	content: '';
+	position: absolute;	
+	transition: inherit;
+	z-index: -1;
+}
+.btn:hover {
+	color: var(--def); /* color del texto final al hacer :hover */
+	transition-delay: .5s;
+}
+.btn:hover:before {
+	transition-delay: 0s;
+}
+.btn:hover:after {
+	background: rgb(45, 73, 116)/*var(--inv)*/; /*CLAVE: el color de fondo del efecto (nota: al tener una altura de cero:0 el borde no se verá)*/
+	transition-delay: 0.35s;
+}
+
+/* From Top */
+/**/
+.from-top:before, .from-top:after {
+	left: 0;
+	height: 0;
+	width: 100%;/* las dos puntas se extienden a todo el ancho del button (entonces no alcanzaría con tener 1 sola punta - o after o before- ??)    */
+                /* RTA: usa el :before para el efecto de los bordes y el :after para el efecto de relleno de fondo                                  */
+    /* CLAVE: ambos, :after y :before, tienen una altura inicial de 0 y un ancho de 100%                                                             */
+}
+.from-top:before {
+    /*CLAVE: al :before le defino bordes (izquiedo y derecho) para el efecto de los bordes (nota: al tener una altura de cero:0 el borde no se verá) */
+	bottom: 0;	
+	border: 1px solid var(--inv);
+	border-top: 0;
+	border-bottom: 0;
+}
+.from-top:after {
+	top: 0;    /* CLAVE: ubicarlo arriba de todo (luego el efecto va a crecer desde arriba)           */
+	height: 0; /* CLAVE: darle altura inicial 0 y en la transición se ve como un aumento/crecimiento  */
+}
+.from-top:hover:before,.from-top:hover:after {
+	height: 100%; /* CLAVE: darle altura fijnal 100% y en la transición se ve como un aumento/crecimiento */
+                  /*        para las dos puntas (el after y el before)                                    */
+}
+
+/* From Left */
+.from-left:before, 
+.from-left:after {
+	top: 0;
+	width: 0;
+	height: 100%;
+}
+.from-left:before {
+	right: 0;
+	border: 1px solid var(--inv);
+	border-left: 0;
+	border-right: 0;	
+}
+.from-left:after {
+	left: 0;
+}
+.from-left:hover:before,
+.from-left:hover:after {
+	width: 100%;
+}
+
+/* From Right */
+.from-right:before, 
+.from-right:after {
+	top: 0;
+	width: 0;
+	height: 100%;
+}
+.from-right:before {
+	left: 0;
+	border: 1px solid var(--inv);
+	border-left: 0;
+	border-right: 0;	
+}
+.from-right:after {
+	right: 0;
+}
+.from-right:hover:before,
+.from-right:hover:after {
+	width: 100%;
+}
+
+/* From center */
+.from-center:before {
+	top: 0;
+	left: 50%;
+	height: 100%;
+	width: 0;
+	border: 1px solid var(--inv);
+	border-left: 0;
+	border-right: 0;
+}
+.from-center:after {
+	bottom: 0;
+	left: 0;
+	height: 0;
+	width: 100%;
+	background: var(--inv);
+}
+.from-center:hover:before {
+	left: 0;
+	width: 100%;
+}
+.from-center:hover:after {
+	top: 0;
+	height: 100%;
+}
+
+/* From Bottom */
+.from-bottom:before, 
+.from-bottom:after {
+	left: 0;
+	height: 0;
+	width: 100%;
+}
+.from-bottom:before {
+	top: 0;	
+	border: 1px solid var(--inv);
+	border-top: 0;
+	border-bottom: 0;
+}
+.from-bottom:after {
+	bottom: 0;
+	height: 0;
+}
+.from-bottom:hover:before,
+.from-bottom:hover:after {
+	height: 100%;
+}
+
+
+/* ~~~~~~~~~~~~ GLOBAL SETTINGS ~~~~~~~~~~~~ */
+
+*, *:before, *:after {
+	box-sizing: border-box;
+}
+
+body {
+	--def: #96B7C4; 	
+	--inv: #fff; /*el color del borde y el background al hacer :hover sobre el boton (y el color inicial del texto del button) */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	height: 100vh;
+	width: 100%;
+	background-image: linear-gradient(-25deg, #616161 0%, #96B7C4 100%);
+}
+
+html {
+	font-size: 12px;
+	font-family: 'Playfair Display', serif;
+}
+
+div {margin-bottom: 3rem;}
+div:last-child {margin-bottom: 0;}
