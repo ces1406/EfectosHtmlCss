@@ -1,0 +1,26 @@
+.parallax{
+    perspective: 1px; 
+    height: 100vh;    
+    overflow-y: auto; 
+    overflow-x: hidden;
+}
+.capaParallax{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 100vh 0; 
+}
+.baseParallax{
+    transform: translateZ(0); 
+}
+.fondoParallax{
+    transform: translateZ(-1px) scale(2); 
+}
+/*Se añaden agrupamientos de capas para trabajar en cada agrupamiento con diferentes efectos*/
+.grupoParallax{
+    position: relative; /* Para permitir al .capaParallax posicionarse de forma "relative" */
+    height: 100vh; /* En este caso quiero que cada grupo llene el viewport (por eso el "height:100vh" ) */
+    transform-style: preserve-3d; /* Previene que el navegador aplane los .capaParallax */
+}

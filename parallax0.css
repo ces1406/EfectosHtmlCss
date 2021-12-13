@@ -1,0 +1,27 @@
+.parallax{
+    perspective: 1px; /* -Activando la perspectiva para transformaciones 3D, el 1px es la distancia del pto. de fuga a la pantalla*/
+                      /* -Se crea una especie de contenedor3D, fijando la perspectiva en el centro. Con el  "height: 100vh;" */
+    height: 100vh;    /*  se crea  como una sub-ventana de igual tamaño que el viewport de la ventana  del navegador         */
+    overflow-y: auto; /* -Permitimos que se pueda scrollear como siempre, pero cualquier elemento hijo/descendientes se 
+                          renderizarán en relación  a la perspectiva fija     */
+}
+.capaParallax{
+    position: absolute; /* la capa se saca del flujo y tiene que llenar el espacio del contenedor */
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 100vh 0; 
+}
+.baseParallax{
+    transform: translateZ(0); /*Lo ubicamos a cierta distancia en el eje Z, creando una sensación de profundiad. Como efecto de esta
+    ubicación a distintas distancias en el eje Z cuando scrolleemos el elemento se moverá a una determianda velocidad.
+    La velocidad de escrolleo se determina trasladando un elemento en eje Z (moviendolo mas cerca o lejos del viewport)  */
+}
+.fondoParallax{
+    transform: translateZ(-1px); /*Lo ubicamos a cierta distancia en el eje Z, creando una sensación de profundiad. Como efecto de esta
+    ubicación a distintas distancias en el eje Z cuando scrolleemos el elemento se moverá a una determianda velocidad.
+    La velocidad de escrolleo se determina trasladando un elemento en el eje Z (moviendolo mas cerca o lejos del viewport)  */
+}
+/* NOTA: un efecto colateral será que los tamaños de un mismo elemento variará segun la ubicación en el eje Z
+    para corregirlo se usará la propiedad "scale" en parallax1.html*/

@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.parallax{
+    perspective: 1px; 
+    height: 100vh;    
+    overflow-x: hidden;
+    overflow-y: auto; 
+}
+.capaParallax{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 100vh 0; 
+}
+.baseParallax{
+    transform: translateZ(0); 
+}
+.fondoParallax{
+    transform: translateZ(-1px) scale(2); 
+    /* el factor de escala se calcula como: 1-n(el de translateZ(n))/perspective */
+}
+
+/* NOTA: la velocidad de scrolleo tambien se determina por el n( del translateZ(n) ) -10px scrollea mas despacio que -1px */
